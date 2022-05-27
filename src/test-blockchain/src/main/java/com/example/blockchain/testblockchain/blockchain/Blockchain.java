@@ -5,11 +5,13 @@ import com.example.blockchain.testblockchain.domain.Transaction;
 import com.example.blockchain.testblockchain.util.BlockHasher;
 import com.example.blockchain.testblockchain.util.BlockHasherImpl;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Service;
 
 import java.time.Instant;
 import java.util.LinkedList;
 import java.util.List;
 
+@Service
 public final class Blockchain {
     private final List<Block> chain;
     private final List<Transaction> currentTransactions;
@@ -46,5 +48,16 @@ public final class Blockchain {
 
     public Block getLastBlock() {
         return chain.get(chain.size() - 1);
+    }
+
+    public int getLength() {
+        return chain.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Blockchain{" +
+                "chain=" + chain +
+                '}';
     }
 }
