@@ -1,9 +1,11 @@
 package com.example.blockchain.testblockchain.util;
 
 import com.google.common.hash.Hashing;
+import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 
+@Service
 public class ProofOfWorkImpl implements ProofOfWork {
     private static final String GUESS_MATCHER = "0000";
 
@@ -18,7 +20,8 @@ public class ProofOfWorkImpl implements ProofOfWork {
         return proof;
     }
 
-    private boolean isValidProof(int lastProof, int proof) {
+    @Override
+    public boolean isValidProof(int lastProof, int proof) {
         var guess = String.format("{%d}{%d}", lastProof, proof);
         var hashedGuess = Hashing.sha256().hashString(guess, StandardCharsets.UTF_8).toString();
 

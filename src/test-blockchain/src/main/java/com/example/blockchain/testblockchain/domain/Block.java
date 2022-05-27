@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.List;
 
-public record Block(int index, Instant timestamp, List<Transaction> transactions, String proof, String previousHash) implements Serializable {
+public record Block(int index, Instant timestamp, List<Transaction> transactions, int proof, String previousHash) implements Serializable {
 
     @Override
     public String toString() {

@@ -1,4 +1,7 @@
 package com.example.blockchain.testblockchain.domain.dtos;
 
-public record BlockchainResponse(String blockchain, int length) {
+import com.example.blockchain.testblockchain.blockchain.Blockchain;
+
+public record BlockchainResponse(BlockchainDto blockchain, int length) {
 }
+
